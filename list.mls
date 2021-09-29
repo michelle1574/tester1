@@ -1,0 +1,31 @@
+# File listing is inside the list.
+Create.New.BootList {
+    Create.New.Element {
+        Set Name="Start Setup (GUI)"
+        Set File="guisetup.iso"
+        Set Desc="It loads normal setup, with interface."
+        Set SaveIn=memory
+    }
+    Create.New.Element {
+        Set Name="Start Setup (Non-GUI)"
+        Set File="normalsetup.iso"
+        Set Desc="It loads non-GUI setup, without interface. Use your keyboard to control in that mode."
+        Set SaveIn=memory
+    }
+    Create.New.Element {
+        Set Name="Live mode (Boot ready OS in RAM)"
+        Set Desc="Load ready OS in RAM"
+        Set File="live_mode.iso"
+        Set SaveIn=memory
+    }
+    Create.New.Element {
+        Set Name="Preinstall (devs only!)"
+        Set Desc="Load preinstallation mode for only developers"
+        Set File="preinstall.iso"
+        Set SaveIn=memory
+    }
+}
+$action BootList (SelectedElement.File.Boot)
+$exclude sys
+$exclude files
+$exclude drv
