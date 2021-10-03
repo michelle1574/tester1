@@ -1,0 +1,18 @@
+<api>
+<list id="ring">
+values {
+  wif
+  wis
+  rp
+  ret
+}
+</list>
+if not ring={values} {set reason=ring value is incorrect or not from the list}, {set error_code=INCORRECT_RING_VALUE}
+<list id="build">
+as onlinelist
+list=microsoft.com/api/controls/downloader/buildlist.js?build=$value&ring=$ring
+
+<script id="err">
+print: "An error has occured.", color: red
+print: "Code: " error_code ". Please try again later."
+print: "Reason: " reason
